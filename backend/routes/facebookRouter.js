@@ -25,11 +25,9 @@ router.get('/', isLoggedIn, (req, res) => {
 
 router.get('/logout', (req, res) => {
     req.logout(() => {
-        console.log('Logged Out')
+        res.redirect('https://localhost:3000/')
     });
-    return res.status(200).json({
-        message: "Logged Out"
-    })
+    
 });
 
 module.exports = router;
