@@ -1,0 +1,13 @@
+.profile {
+    width: 60%;
+    margin: auto;
+    padding: 4rem;
+}
+
+.profile-img-container {
+    text-align: center;
+}
+
+.profile-img {
+    border-radius: 50%;
+}

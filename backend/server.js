@@ -6,17 +6,32 @@ const passport = require('passport');
 const session = require('express-session');
 const facebookRouter = require('./routes/facebookRouter');
 const FacebookStrategy = require('passport-facebook').Strategy;
+const cors = require('cors');
 
 // express config
 const app = express();
 app.use(express.json());
 dotenv.config();
+app.use(cors({
+    origin: 'https://localhost:3000',
+    optionsSuccessStatus: 200,
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true,
+}))
 
 // session config
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: true,
+    name: "session",
+    keys: ["lama"],
+    maxAge: 24 * 60 * 60 * 100,
+    httpOnly: true,  // dont let browser javascript access cookie ever
+    secure: true, // only use cookie over https
+    ephemeral: true
+
+
 }));
 app.use(passport.initialize());
 app.use(passport.session());

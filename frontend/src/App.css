@@ -1,0 +1,23 @@
+.App {
+    background-color: rgb(236, 236, 236);
+    height: 100vh;
+}
+
+.btn {
+    outline: none;
+    border: none;
+    padding: 1rem;
+    background-color:cadetblue;
+    color: white;
+    font-size: medium;
+    font-weight: 500;
+    border-radius: .2rem;
+    display: inline-block;
+    margin: auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    margin: auto;
+}

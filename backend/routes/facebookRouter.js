@@ -8,11 +8,10 @@ const router = express.Router();
 router.get('/auth/facebook', passport.authenticate('facebook'));
 
 router.get('/auth/facebook/callback', passport.authenticate('facebook', {
-    successRedirect: '/api',
-    failureRedirect: '/api'
-}));
+    successRedirect: 'https://localhost:3000/'
+}))
 
-router.get('/',isLoggedIn, (req, res) => {
+router.get('/', isLoggedIn, (req, res) => {
     if (req.user) {
         return res.status(200).json({
             user: req.user
